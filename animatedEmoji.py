@@ -1,8 +1,3 @@
-# [Task a]
-# (5 marks)
-# Create a python file called animatedEmoji.py Which Will display 3 Emoji faces in the LED matrix on Sense HAT.
-# You need to create your oWn Emoji With at least 3 colours for each. You also need to display them one by one With 3 seconds interval.
-
 from sense_hat import SenseHat
 import time
 
