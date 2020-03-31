@@ -13,7 +13,8 @@ class ElectronicDie:
 
     def checkForShake(self, message):
         flag = False
-        self.sense.show_message(message, scroll_speed=0.06)
+        self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
+        i = 0
         while flag==False:
             x, y, z = self.sense.get_accelerometer_raw().values()
             if abs(x) > 2 or abs(y) > 2 or abs(z) > 2:
@@ -23,6 +24,9 @@ class ElectronicDie:
                 flag=True
                 sleep(2)
                 return self.value['number']
+            i+=1
+            if i%200==0:
+                self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
     
     def animateShaking(self):
         X = [155, 155, 0]  
@@ -40,7 +44,7 @@ class ElectronicDie:
 
     def updateValues(self, X, O):
         return [
-            {   'number': '1',
+            {   'number': 1,
                 'pixels':[
                     O, O, O, O, O, O, O, O,
                     O, O, O, O, O, O, O, O,
@@ -52,7 +56,7 @@ class ElectronicDie:
                     O, O, O, O, O, O, O, O
                 ]
             },
-            {   'number': '2',
+            {   'number': 2,
                 'pixels':[
                     O, O, O, O, O, O, O, O,
                     O, O, O, O, O, X, X, O,
@@ -64,7 +68,7 @@ class ElectronicDie:
                     O, O, O, O, O, O, O, O
                 ]
             },
-            {   'number': '3',
+            {   'number': 3,
                 'pixels':[
                     O, O, O, O, O, O, X, X,
                     O, O, O, O, O, O, X, X,
@@ -76,7 +80,7 @@ class ElectronicDie:
                     X, X, O, O, O, O, O, O
                 ]
             },
-            {   'number': '4',
+            {   'number': 4,
                 'pixels':[
                     O, O, O, O, O, O, O, O,
                     O, X, X, O, O, X, X, O,
@@ -89,7 +93,7 @@ class ElectronicDie:
                 ]
 
             },
-            {   'number': '5',
+            {   'number': 5,
                 'pixels':[
                     X, X, O, O, O, O, X, X,
                     X, X, O, O, O, O, X, X,
@@ -101,7 +105,7 @@ class ElectronicDie:
                     X, X, O, O, O, O, X, X
                 ]
             },
-            {   'number': '6',
+            {   'number': 6,
                 'pixels':[
                     O, X, X, O, O, X, X, O,
                     O, X, X, O, O, X, X, O,
@@ -117,10 +121,12 @@ class ElectronicDie:
 
                 
                 
+def main():
+    die =  ElectronicDie()
+    die.checkForShake('Shake now!')
+    sense = SenseHat()
+    sleep(2)
+    sense.clear()
 
-die =  ElectronicDie()
-value = die.checkForShake('Shake now!')
-sense = SenseHat()
-sense.show_letter(value, [0, 255, 0])
-sleep(2)
-sense.clear()
+if __name__ == "__main__":
+    main()
