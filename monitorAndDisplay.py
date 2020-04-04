@@ -56,6 +56,7 @@ class TemperatureMonitor:
                 exit()
             return data
 
+    # Checks if the boundaries of temperature in json is incorrect
     def verify_temperature_boundary_values(self, temperature_thresholds):
         if(temperature_thresholds['cold_max'] == temperature_thresholds['comfortable_min']
                 and temperature_thresholds['comfortable_max'] == temperature_thresholds['hot_min'] and temperature_thresholds['comfortable_min'] < temperature_thresholds['comfortable_max']):
