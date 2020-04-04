@@ -6,11 +6,11 @@ This program displays 3 emoji faces in Sense HAT LED matrix in 3 second interval
 `python3 animatedEmoji.py`
 
 ## Temperature Monitoring and display
-This program displays temperature in the sense HAT display. 
+This program displays temperature in the sense HAT display. Temperature ranges are stored in config.json.
 * If the level of temperature is cold, display temperature with blue colour.
 * If the level of temperature is comfortable, display temperature with green colour.
 * If the level of temperature is hot, display temperature with red colour.
-Temperature ranges in stored in config.json
+
 
 `python3 monitorAndDisplay.py`
 
