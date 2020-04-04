@@ -37,7 +37,15 @@ class TemperatureMonitor:
     # Returns the JSON object from config.json 
     def get_data_from_json(self):
         with open('config.json') as json_file:
-            data = json.load(json_file)
+            try:
+                data = json.load(json_file)
+            except:
+                print("--------------- USER WARNING ---------------")
+                print("")
+                print("  The JSON in config.json file is invalid.")    
+                print("")
+                print("--------------------------------------------")
+                exit()
             return data
 
 
