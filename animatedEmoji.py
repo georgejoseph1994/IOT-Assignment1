@@ -1,7 +1,6 @@
 from sense_hat import SenseHat
 import time
 
-
 class AnimatedEmoji:
     sense = None
 
@@ -9,11 +8,13 @@ class AnimatedEmoji:
         self.sense = SenseHat()
 
     def display(self):
-        R = [255, 0, 0]  # Red
-        W = [255, 255, 255]  # White
-        G = [0, 128, 0]  # Green
+        # Colors
+        R = [255, 0, 0]
+        W = [255, 255, 255]
+        G = [0, 128, 0]
         B = [0,0,128]
         Y = [255,255,0]
+
         self.sense.low_light = True
 
         smiling_face_1 = [W, W, W, W, W, W, W, W,
@@ -45,6 +46,8 @@ class AnimatedEmoji:
                           B, R, B, B, B, B, R, B,
                           B, B, B, B, B, B, B, B
                           ]
+        
+        # Repeatedly displaying smileys on screen
         try:                  
             while(True):
                 self.sense.set_pixels(smiling_face_1)
@@ -57,6 +60,7 @@ class AnimatedEmoji:
                 time.sleep(3)
                 self.sense.clear()
         finally:
+            # Clearing the sense hat display on keyboard interrupt
             self.sense.clear()
 
 
