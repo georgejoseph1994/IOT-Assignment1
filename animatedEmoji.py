@@ -17,8 +17,8 @@ class AnimatedEmoji:
         self.sense.low_light = True
 
         smiling_face_1 = [W, W, W, W, W, W, W, W,
-                          W, W, W, W, W, W, W, W,
-                          W, W, R, W, W, R, W, W,
+                          W, R, R, W, W, R, R, W,
+                          W, R, G, W, W, R, G, W,
                           W, W, W, W, W, W, W, W,
                           W, W, W, W, W, W, W, W,
                           W, R, W, W, W, W, R, W,
