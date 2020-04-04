@@ -1,5 +1,19 @@
 # IOT-Assignment1
 
+## Animated Emoji
+This program displays 3 emoji faces in Sense HAT LED matrix in 3 second interval.
+
+`python3 animatedEmoji.py`
+
+## Temperature Monitoring and display
+This program displays temperature in the sense HAT display. 
+* If the level of temperature is cold, display temperature with blue colour.
+* If the level of temperature is comfortable, display temperature with green colour.
+* If the level of temperature is hot, display temperature with red colour.
+Temperature ranges in stored in config.json
+
+`python3 monitorAndDisplay.py`
+
 ## The electronic die program
 This program displays a message and awaits the user to shake the raspberrypi with the sensehat. Upon shaking, the sensehat displays a random number (0 to 6) just like an ordinary die. To run the electronic die program, execute 
 the following command
@@ -14,3 +28,4 @@ The winner of the game (P1 or P2) will be written into a file called winner.csv 
 To run the game program, execute the following command
 
 `python3 game.py`
+
