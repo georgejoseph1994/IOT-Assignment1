@@ -1,0 +1,23 @@
+Animated Emoji
+    This program displays 3 emoji faces in Sense HAT LED matrix in 3 second interval.
+
+    To execute - python3 animatedEmoji.py
+
+    Implimentation -  The code for displaying emojis is within the class AnimatedEmoji.
+    The method display initializes the colours and the matrix for LED then displays the smileys infinitely with a 3 second gap.
+
+Monitor and Display
+    This program displays temperature in the sense HAT display.
+
+    If the level of temperature is cold, display temperature with blue colour.
+    If the level of temperature is comfortable, display temperature with green colour.
+    If the level of temperature is hot, display temperature with red colour. Temperature ranges in stored in config.json
+
+    To execute - python3 monitorAndDisplay.py
+
+    Implimentation - In file monitorAndDisplay, class TemperatureMonitor holds the program logic.
+    In the method monitor_and_display following actions are implimented 
+        1 - The colours are initialized
+        2 - Read temperature boundary values from the config file.
+        3 - Check the temperature every 10 second and display the temperature in appropriate color.
+
