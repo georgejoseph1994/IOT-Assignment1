@@ -11,6 +11,7 @@ class ElectronicDie:
         self.values = self.updateValues(X, O) 
         self.sense = SenseHat()
 
+    # This method checks for rolling of the die
     def checkForShake(self, message):
         flag = False
         self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
@@ -28,6 +29,7 @@ class ElectronicDie:
             if i%200==0:
                 self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
     
+    # This method displays the animation for a roll taking place
     def animateShaking(self):
         X = [155, 155, 0]  
         O = [0, 0, 0]
@@ -42,6 +44,8 @@ class ElectronicDie:
         O = [0, 0, 0] 
         self.values = self.updateValues(X, O) 
 
+    # This method sets the pixels values for each number of the die
+    # The parameters decide the color of the die
     def updateValues(self, X, O):
         return [
             {   'number': 1,
@@ -127,6 +131,7 @@ def main():
     sense = SenseHat()
     sleep(2)
     sense.clear()
+
 
 if __name__ == "__main__":
     main()

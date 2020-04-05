@@ -21,3 +21,43 @@ Monitor and Display
         2 - Read temperature boundary values from the config file.
         3 - Check the temperature every 10 second and display the temperature in appropriate color.
 
+
+Electronic Die
+ElectronicDie Class 
+    It contains all the functionalities and attributes that need to be recorded for a die.
+    
+    checkForShake method
+        This method accepts a message to be displayed every interval and waits for the user to roll the die
+        It returns the value obtained from the roll of the die
+
+    animateShaking method
+        This method displayes the animation for the rolling of the die
+
+    updateValues method
+        This method sets pixel values for each number of the die based on input color parameters
+
+
+Electronic Die Game
+Player Class    
+    It contains the player specific attributes like name and score
+
+Game Class
+    It contains all attributes and functionalities for running the Game
+
+    performPlayerTurn method
+        It utilises the ElectronicDie object to use its checkForShake method
+    
+    showInstructions method
+        This method displays the instructions for playing the Game
+    
+    startGame method
+        This method starts the game checks the score and switches turns between players
+
+    displayScore method
+        This method displays the score for each player
+
+    
+
+
+
+
