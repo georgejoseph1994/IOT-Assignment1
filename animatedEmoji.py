@@ -65,5 +65,5 @@ class AnimatedEmoji:
 
 
 # Invoking the AnimatedEmoji class method Display
-animatedEmoji = AnimatedEmoji()
-animatedEmoji.display()
+animated_emoji = AnimatedEmoji()
+animated_emoji.display()

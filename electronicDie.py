@@ -8,18 +8,19 @@ class ElectronicDie:
         self.value = None
         X = [0, 255, 0]  
         O = [0, 0, 0] 
-        self.values = self.updateValues(X, O) 
+        self.values = self.update_values(X, O) 
         self.sense = SenseHat()
 
     # This method checks for rolling of the die
-    def checkForShake(self, message):
+    def check_for_shake(self, message):
         flag = False
-        self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
+        self.sense.show_message(message, scroll_speed=0.06, 
+                                text_colour=[0, 0, 255])
         i = 0
         while flag==False:
             x, y, z = self.sense.get_accelerometer_raw().values()
             if abs(x) > 2 or abs(y) > 2 or abs(z) > 2:
-                self.animateShaking()
+                self.animate_shaking()
                 self.value=choice(self.values)
                 self.sense.set_pixels(self.value['pixels'])
                 flag=True
@@ -27,13 +28,14 @@ class ElectronicDie:
                 return self.value['number']
             i+=1
             if i%200==0:
-                self.sense.show_message(message, scroll_speed=0.06, text_colour=[0, 0, 255])
+                self.sense.show_message(message, scroll_speed=0.06, 
+                                        text_colour=[0, 0, 255])
     
     # This method displays the animation for a roll taking place
-    def animateShaking(self):
+    def animate_shaking(self):
         X = [155, 155, 0]  
         O = [0, 0, 0]
-        self.values = self.updateValues(X, O) 
+        self.values = self.update_values(X, O) 
         i=0
         while i<4:
             for item in self.values: 
@@ -42,11 +44,11 @@ class ElectronicDie:
             i+=1
         X = [0, 255, 0]  
         O = [0, 0, 0] 
-        self.values = self.updateValues(X, O) 
+        self.values = self.update_values(X, O) 
 
     # This method sets the pixels values for each number of the die
     # The parameters decide the color of the die
-    def updateValues(self, X, O):
+    def update_values(self, X, O):
         return [
             {   'number': 1,
                 'pixels':[
@@ -127,7 +129,7 @@ class ElectronicDie:
                 
 def main():
     die =  ElectronicDie()
-    die.checkForShake('Shake now!')
+    die.check_for_shake('Shake now!')
     sense = SenseHat()
     sleep(2)
     sense.clear()

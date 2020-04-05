@@ -26,14 +26,14 @@ Electronic Die
 ElectronicDie Class 
     It contains all the functionalities and attributes that need to be recorded for a die.
     
-    checkForShake method
+    check_for_shake method
         This method accepts a message to be displayed every interval and waits for the user to roll the die
         It returns the value obtained from the roll of the die
 
-    animateShaking method
+    animate_shaking method
         This method displayes the animation for the rolling of the die
 
-    updateValues method
+    update_values method
         This method sets pixel values for each number of the die based on input color parameters
 
 
@@ -44,16 +44,16 @@ Player Class
 Game Class
     It contains all attributes and functionalities for running the Game
 
-    performPlayerTurn method
+    perform_player_turn method
         It utilises the ElectronicDie object to use its checkForShake method
     
-    showInstructions method
+    show_instructions method
         This method displays the instructions for playing the Game
     
-    startGame method
+    start_game method
         This method starts the game checks the score and switches turns between players
 
-    displayScore method
+    display_score method
         This method displays the score for each player
 
     

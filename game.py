@@ -18,16 +18,19 @@ class Game:
         self.player1 = Player('P1')
         self.player2 = Player('P2')
     
-    # This method implements the requesting and waiting for player to interact with the die
-    def performPlayerTurn(self, player):
-        player.score+= self.electronicDie.checkForShake(player.name + "'s turn")
+    # This method implements the requesting and waiting for player to 
+    # interact with the die
+    def perform_player_turn(self, player):
+        player.score+= self.electronicDie.check_for_shake(player.name 
+                                                            + "'s turn")
 
     # This method displays the instructions
-    def showInstructions(self):
+    def show_instructions(self):
         self.sense.show_message("Electronic Die Game", scroll_speed=0.08, 
                                 text_colour=[0, 0, 255])
         sleep(1)
-        self.sense.show_message("This is a two player game", scroll_speed=0.06, 
+        self.sense.show_message("This is a two player game", 
+                                scroll_speed=0.06, 
                                 text_colour=[0, 0, 255])
         sleep(1)
         self.sense.show_message("Each player takes turns to roll the die", 
@@ -42,21 +45,21 @@ class Game:
                                 text_colour=[0, 0, 255])
 
     # This method starts the game    
-    def startGame(self):
-        self.showInstructions()
-        currentPlayer = self.player1
+    def start_game(self):
+        self.show_instructions()
+        current_player = self.player1
 
         while(self.player1.score<=30 and self.player2.score<=30):
-            self.performPlayerTurn(currentPlayer)
+            self.perform_player_turn(current_player)
 
             #Switch player
-            if currentPlayer==self.player1:
-                currentPlayer = self.player2 
+            if current_player==self.player1:
+                current_player = self.player2 
             else:
-                currentPlayer = self.player1
+                current_player = self.player1
 
-            if currentPlayer==self.player1:
-                self.displayScore()
+            if current_player==self.player1:
+                self.display_score()
 
         winner = self.player1 if self.player1.score>30 else self.player2
         self.sense.show_message("Winner is " + winner.name + " with " + 
@@ -69,24 +72,29 @@ class Game:
         f = open('winner.csv', 'a')
         with f:
             writer = csv.writer(f)
-            writer.writerow([winner.name, str(winner.score), datetime.now()])
+            writer.writerow([winner.name, str(winner.score), 
+                            datetime.now()])
 
     # This method displays the score
-    def displayScore(self):     
+    def display_score(self):     
         self.sense.show_message("Score", scroll_speed=0.06, 
                                         text_colour=[155, 155, 0])
-        self.sense.show_message(self.player1.name + ":" + str(self.player1.score), 
-                                scroll_speed=0.06, text_colour=[155, 155, 0])
+        self.sense.show_message(self.player1.name + ":" + 
+                                str(self.player1.score), 
+                                scroll_speed=0.06, 
+                                text_colour=[155, 155, 0])
         sleep(1)
-        self.sense.show_message(self.player2.name + ":" + str(self.player2.score), 
-                                scroll_speed=0.06, text_colour=[155, 155, 0])
+        self.sense.show_message(self.player2.name + ":" + 
+                                str(self.player2.score), 
+                                scroll_speed=0.06, 
+                                text_colour=[155, 155, 0])
         print(self.player1.name + ":" + str(self.player1.score))
         print(self.player2.name + ":" + str(self.player2.score)) 
 
 
 def main():
     game = Game()
-    game.startGame()
+    game.start_game()
 
 
 if __name__ == "__main__":
